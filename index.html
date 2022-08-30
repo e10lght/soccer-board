@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サッカーボード</title>
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/move.css">
+    <link rel="icon" href="img/soccer_ball-1.png">
+</head>
+
+<body>
+
+
+    <!-- 標準のレイアウト -->
+    <div class="container">
+        <main>
+            <!-- クリックで要素を追加するHTML -->
+
+            <canvas id="draw_area" width="500px" height="500px" style="border: 1px solid #000000;">
+            </canvas>
+        </main>
+        <img src="img/soccer_ball-1.png" alt="サッカーボール" class="playerElem" id="player" data-elemid="0">
+    </div>
+    <!-- 新規追加 -->
+    <div class="setting">
+        <form action="#">
+            <div>
+                <p class="error">6文字以下で入力してください</p>
+                名前：<input type="text" value="" name="name">
+                色：
+                <label for="red">
+                    <input id="red" type="radio" name="radio" value="red" checked>赤
+                </label>
+                <label for="blue">
+                    <input id="blue" type="radio" name="radio" value="blue">青
+                </label>
+            </div>
+            <div>
+                <button type="button" name="add" id="add">追加</button>
+                <button type="button" name="back" id="back">戻る</button>
+            </div>
+        </form>
+    </div>
+    <!-- 更新 -->
+    <div class="setting" id="change">
+        <form action="#">
+            <div>
+                名前：<input type="text" value="" name="name">
+                色：
+                <label for="updateRed">
+                    <input id="updateRed" type="radio" name="radio" value="red">赤
+                </label>
+                <label for="updateBlue">
+                    <input id="updateBlue" type="radio" name="radio" value="blue">青
+                </label>
+            </div>
+            <div>
+                <button type="button" name="add" id="update">更新</button>
+                <button type="button" name="cancel" id="cancel">戻る</button>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- ペンの設定を変更する要素 -->
+    <div id="change_pen">
+        <img src="img/pen.png" alt="">
+
+        <div class="select_color">
+            <ul>
+                <li data-color="black">
+                    <p>ペンの色:黒</p>
+                </li>
+                <li data-color="red">
+                    <p>ペンの色:赤</p>
+                </li>
+                <li data-color="blue">
+                    <p>ペンの色:青</p>
+                </li>
+                <li data-color="white">
+                    <p>消しゴム</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="operation">
+        <nav class="operation_list">
+            <ul>
+                <li>要素を削除する</li>
+                <li>描画をリセットする</li>
+            </ul>
+        </nav>
+        <img src="img/setting.png" alt="">
+    </div>
+    <script src="js/storage.js"></script>
+    <script src="js/main.js" type="module"></script>
+    <!-- テスト用スクリプト -->
+    <script>
+    </script>
+</body>
+</html>

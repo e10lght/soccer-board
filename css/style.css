@@ -1,0 +1,217 @@
+/* レイアウトのためのCSS */
+body {
+    background-image: url(../img/main.png);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+#change_pen {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: end;
+    opacity: .5;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#change_pen img {
+    border-radius: 50%;
+}
+#change_pen:hover {
+    opacity: 1;
+    background-color: rgba(185, 185, 185,.6);
+}
+#change_pen img.active_pen {
+    opacity: 1;
+}
+
+.select_color {
+    position: fixed;
+    right: 3%;
+    top: 0;
+    opacity: 0;
+    transition: 0.3s;
+    transform: translateY(-100%);
+    background-color: rgba(255, 255, 255, .4);
+}
+.select_color.active {
+    opacity: 1;
+    transform: translateY(45%);
+}
+
+
+.select_color ul {
+    padding: 0 10px 0 15px;
+}
+
+.select_color ul li {
+    cursor: pointer;
+    list-style: none;
+    background-color: aliceblue;
+    padding: 2px 10px;
+    margin: 5px 0;
+    font-size: 12px;
+}
+.select_color ul li:hover {
+    background-color: rgb(222, 255, 165);
+}
+.select_color ul li:nth-child(1).active {
+    background-color: black;
+    color: #fff;
+}
+.select_color ul li:nth-child(2).active {
+    background-color: red;
+    color: #fff;
+}
+.select_color ul li:nth-child(3).active {
+    background-color: blue;
+    color: #fff;
+}
+.select_color ul li:nth-child(4).active {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.select_color > ul > li > p {
+    padding: 0;
+    margin: 0;
+}
+
+/* 要素削除や描画リセットの操作のスタイル */
+#operation {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: .5;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: #fff;
+}
+#operation img {
+    width: 60%;
+    height: 60%;
+}
+#operation:hover {
+    opacity: 1;
+    background-color: rgba(185, 185, 185, 0.6);
+
+}
+#operation img:hover {
+    opacity: 1;
+}
+#operation .operation_list {
+    position: absolute;
+    right: 3%;
+    bottom: 85%;
+    width: 350%;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: 0.3s;
+    background-color: rgba(255, 255, 255, .4);
+}
+#operation .operation_list.active {
+    opacity: 1;
+    transform: translateY(10%);
+}
+
+.operation_list ul {
+    padding: 0 10px 0 15px;
+}
+
+.operation_list ul li {
+    cursor: pointer;
+    list-style: none;
+    background-color: aliceblue;
+    padding: 2px 10px;
+    margin: 5px 0;
+    font-size: 12px;
+}
+.operation_list ul li:hover {
+    background-color: rgb(222, 255, 165);
+}
+.operation_list > ul > li > p {
+    padding: 0;
+    margin: 0;
+}
+
+/* フィールドに追加した要素のレイアウト */
+.playerElem {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    cursor: move;
+    color: #000;
+    text-shadow: 1px 1px #fff;
+    border: 1px solid #000;
+}
+img.playerElem {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+}
+.playerElem:active {
+    transform: scale(1.2);
+}
+img.playerElem:active {
+    transform: translate(-50%, -50%);
+}
+
+/* 要素を追加する際に表示する設定画面 */
+.setting {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(185, 185, 185, 0.7);
+    padding: 100px;
+    /* display: flex; */
+    width: 55%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: none;
+    flex-direction: column;
+}
+
+.setting .error {
+    color: red;
+    margin: 0;
+    opacity: 0;
+}
+.setting .err-active {
+    opacity: 1;
+}
+
+.active {
+    display: flex;
+    z-index: 9;
+}
+
+input[type=text] {
+    font-size: 16px;
+}
